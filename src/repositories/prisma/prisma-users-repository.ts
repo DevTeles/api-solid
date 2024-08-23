@@ -3,7 +3,7 @@ import { Prisma, User } from '@prisma/client'
 import { UsersRepository } from '../users-repository'
 
 export class PrismaUsersRepository implements UsersRepository {
-  async findBtEmail(email: string): Promise<User | null> {
+  async findByEmail(email: string): Promise<User | null> {
     const userWithSameEmail = await prisma.user.findUnique({
       where: {
         email,
